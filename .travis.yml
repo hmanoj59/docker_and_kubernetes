@@ -1,0 +1,12 @@
+# language: node_js
+
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker build -t hmanoj59/docker_and_kubernetes -f Dockerfile.dev .
+
+scripts:
+  docker run -e CI=true hmanoj59/docker_and_kubernetes npm run test
